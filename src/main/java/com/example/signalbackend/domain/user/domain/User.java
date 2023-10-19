@@ -31,7 +31,7 @@ public class User extends BaseIdEntity {
     @Column(columnDefinition = "VARCHAR(12)", nullable = false, unique = true)
     private String accountId;
 
-    @Column(columnDefinition = "CHAR(256)", nullable = false)
+    @Column(columnDefinition = "CHAR(255)", nullable = false)
     private String password;
 
     @Column(columnDefinition = "VARCHAR(5)")
