@@ -25,7 +25,7 @@ public class User extends BaseIdEntity {
     @Column(nullable = false)
     private LocalDate birth;
 
-    @Column(columnDefinition = "VARCHAR(11)", nullable = false, unique = true)
+    @Column(columnDefinition = "VARCHAR(20)", nullable = false, unique = true)
     private String phone;
 
     @Column(columnDefinition = "VARCHAR(12)", nullable = false, unique = true)
