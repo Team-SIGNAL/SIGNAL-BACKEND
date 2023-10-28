@@ -6,31 +6,30 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
-@RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
-public class SecurityConfig {
+@RequiredArgsConstructor
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final ObjectMapper objectMapper;
 
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http
+                .cors().and()
                 .csrf().disable()
+                .sessionManagement().disable()
                 .formLogin().disable()
-                .cors()
 
+                .authorizeRequests()
+                .anyRequest().authenticated()
                 .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .apply(new FilterConfig(objectMapper));
 
-                .and()
-                .apply(new FilterConfig(objectMapper))
-
-                .and().build();
     }
-
 }
