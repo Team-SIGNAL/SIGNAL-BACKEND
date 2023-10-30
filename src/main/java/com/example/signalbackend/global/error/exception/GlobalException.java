@@ -1,5 +1,6 @@
-package com.example.signalbackend.global.error;
+package com.example.signalbackend.global.error.exception;
 
+import com.example.signalbackend.global.error.exception.ErrorCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
