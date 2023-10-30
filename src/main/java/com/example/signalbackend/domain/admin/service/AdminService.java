@@ -14,8 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Service
 public class AdminService {
-
-    private final AdminFacade adminFacade;
     private final AdminRepository adminRepository;
     private final PasswordEncoder passwordEncoder;
 
