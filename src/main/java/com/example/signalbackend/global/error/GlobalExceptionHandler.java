@@ -1,5 +1,7 @@
 package com.example.signalbackend.global.error;
 
+import com.example.signalbackend.global.error.exception.ErrorCode;
+import com.example.signalbackend.global.error.exception.GlobalException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;

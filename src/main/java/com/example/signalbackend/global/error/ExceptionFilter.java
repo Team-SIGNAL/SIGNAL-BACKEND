@@ -1,5 +1,7 @@
 package com.example.signalbackend.global.error;
 
+import com.example.signalbackend.global.error.exception.ErrorCode;
+import com.example.signalbackend.global.error.exception.GlobalException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

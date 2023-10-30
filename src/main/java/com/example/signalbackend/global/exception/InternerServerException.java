@@ -1,7 +1,7 @@
 package com.example.signalbackend.global.exception;
 
-import com.example.signalbackend.global.error.ErrorCode;
-import com.example.signalbackend.global.error.GlobalException;
+import com.example.signalbackend.global.error.exception.ErrorCode;
+import com.example.signalbackend.global.error.exception.GlobalException;
 
 public class InternerServerException extends GlobalException {
 
