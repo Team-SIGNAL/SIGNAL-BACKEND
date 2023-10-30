@@ -2,10 +2,10 @@ package com.example.signalbackend.domain.admin.domain;
 
 import com.example.signalbackend.global.entity.BaseIdEntity;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
@@ -14,7 +14,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
-@Builder
+@SuperBuilder
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tbl_admin")
@@ -28,10 +28,9 @@ public class Admin extends BaseIdEntity {
     private String password;
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    @ColumnDefault("admin")
     private String name;
 
-    @Column(columnDefinition = "VARCHAR(13)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(13)")
     @ColumnDefault("''")
     private String phone;
 
