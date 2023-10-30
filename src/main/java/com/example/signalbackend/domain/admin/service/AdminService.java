@@ -4,7 +4,6 @@ import com.example.signalbackend.domain.admin.domain.Admin;
 import com.example.signalbackend.domain.admin.domain.Role;
 import com.example.signalbackend.domain.admin.domain.repository.AdminRepository;
 import com.example.signalbackend.domain.admin.exception.AdminAlreadyException;
-import com.example.signalbackend.domain.admin.facade.AdminFacade;
 import com.example.signalbackend.domain.admin.presentation.dto.request.AdminSignUpRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
