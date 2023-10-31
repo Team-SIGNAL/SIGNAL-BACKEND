@@ -1,4 +1,4 @@
-package com.example.signalbackend.global.config;
+package com.example.signalbackend.global.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
