@@ -6,8 +6,11 @@ import com.example.signalbackend.domain.user.service.UserService;
 import com.example.signalbackend.global.utils.token.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RequiredArgsConstructor
+@RequestMapping("/users")
 @RestController
 public class UserController {
     private final UserService userService;
@@ -26,7 +30,7 @@ public class UserController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/singin")
+    @PostMapping("/signin")
     public TokenResponse userSignin(@RequestBody @Valid UserSigninRequest request) {
         return userService.userSignin(request);
     }
