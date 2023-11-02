@@ -34,7 +34,7 @@ public class Admin extends BaseIdEntity {
     @ColumnDefault("''")
     private String phone;
 
-    @Column(columnDefinition = "VARCHAR(8)", nullable = false)
+    @Column(columnDefinition = "VARCHAR(12)", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
 

@@ -6,7 +6,6 @@ import com.example.signalbackend.domain.refreshtoken.repository.RefreshTokenRepo
 import com.example.signalbackend.global.exception.ExpiredTokenException;
 import com.example.signalbackend.global.exception.InvalidTokenException;
 import com.example.signalbackend.global.security.auth.AdminDetailsService;
-import com.example.signalbackend.global.security.auth.AuthDetails;
 import com.example.signalbackend.global.security.auth.AuthDetailsService;
 import com.example.signalbackend.global.utils.token.dto.TokenResponse;
 import io.jsonwebtoken.Claims;

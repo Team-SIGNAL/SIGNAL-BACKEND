@@ -1,7 +1,10 @@
 package com.example.signalbackend.domain.admin.presentation;
 
+import com.example.signalbackend.domain.admin.presentation.dto.request.AdminSignInRequest;
 import com.example.signalbackend.domain.admin.presentation.dto.request.AdminSignUpRequest;
+import com.example.signalbackend.domain.admin.presentation.dto.response.AdminTokenResponse;
 import com.example.signalbackend.domain.admin.service.AdminService;
+import com.example.signalbackend.global.utils.token.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +21,16 @@ import javax.validation.Valid;
 public class AdminController {
 
     private final AdminService adminService;
-    
-    @ResponseStatus(HttpStatus.OK)
+
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     public void adminSignup(@RequestBody @Valid AdminSignUpRequest request) {
         adminService.signup(request);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/signin")
+    public AdminTokenResponse adminSignin(@RequestBody @Valid AdminSignInRequest request) {
+        return adminService.signin(request);
     }
 }
