@@ -28,9 +28,9 @@ public class UserSignupRequest {
     private String accountId;
 
     @NotBlank(message = "비밀번호를 입력하세요")
+    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!#$%&'()*+,./:;<=>?@＼^_`{|}~])[a-zA-Z0-9!#$%&'()*+,./:;<=>?@＼^_`{|}~]{8,32}$")
     private String password;
 
     @NotNull
-    @Pattern(regexp = "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!#$%&'()*+,./:;<=>?@＼^_`{|}~])[a-zA-Z0-9!#$%&'()*+,./:;<=>?@＼^_`{|}~]{8,32}$")
     private Gender gender;
 }
