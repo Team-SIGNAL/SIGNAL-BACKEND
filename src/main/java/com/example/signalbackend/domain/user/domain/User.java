@@ -40,4 +40,7 @@ public class User extends BaseIdEntity {
     @Column(columnDefinition = "VARCHAR(5)", nullable = false)
     @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @Column(columnDefinition = "CHAR(45)")
+    private String profile;
 }
