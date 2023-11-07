@@ -7,8 +7,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-@Getter
 @NoArgsConstructor
+@Getter
 public class AdminSignUpRequest {
 
     @NotBlank
