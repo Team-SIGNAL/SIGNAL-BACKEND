@@ -62,7 +62,7 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public UserInfoResponse userInfo() {
+    public UserInfoResponse queryUserInfo() {
         User user = userFacade.getCurrentUser();
 
         return new UserInfoResponse(
