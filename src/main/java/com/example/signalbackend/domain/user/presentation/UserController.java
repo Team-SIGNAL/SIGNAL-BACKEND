@@ -45,6 +45,6 @@ public class UserController {
 
     @GetMapping("/info")
     public UserInfoResponse getUserInfo() {
-        return userService.userInfo();
+        return userService.queryUserInfo();
     }
 }
