@@ -1,6 +1,5 @@
 package com.example.signalbackend.global.utils.token.dto;
 
-import com.example.signalbackend.domain.admin.domain.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

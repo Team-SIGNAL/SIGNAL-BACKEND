@@ -1,4 +1,4 @@
-package com.example.signalbackend.domain.admin.exception;
+package com.example.signalbackend.global.exception;
 
 import com.example.signalbackend.global.error.exception.ErrorCode;
 import com.example.signalbackend.global.error.exception.GlobalException;

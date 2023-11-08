@@ -2,11 +2,13 @@ package com.example.signalbackend.domain.user.presentation;
 
 import com.example.signalbackend.domain.user.presentation.request.UserSigninRequest;
 import com.example.signalbackend.domain.user.presentation.request.UserSignupRequest;
+import com.example.signalbackend.domain.user.presentation.response.UserInfoResponse;
 import com.example.signalbackend.domain.user.service.UserService;
 import com.example.signalbackend.global.utils.token.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,5 +35,16 @@ public class UserController {
     @PostMapping("/signin")
     public TokenResponse userSignin(@RequestBody @Valid UserSigninRequest request) {
         return userService.userSignin(request);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/secession")
+    public void userSecession() {
+        userService.userSecession();
+    }
+
+    @GetMapping("/info")
+    public UserInfoResponse getUserInfo() {
+        return userService.queryUserInfo();
     }
 }

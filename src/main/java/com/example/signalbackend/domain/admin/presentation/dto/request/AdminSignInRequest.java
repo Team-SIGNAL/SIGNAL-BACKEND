@@ -5,8 +5,8 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 
-@Getter
 @NoArgsConstructor
+@Getter
 public class AdminSignInRequest {
 
     @NotBlank

@@ -1,14 +1,15 @@
 package com.example.signalbackend.domain.user.service;
 
-import com.example.signalbackend.domain.admin.domain.Admin;
 import com.example.signalbackend.domain.admin.domain.Role;
-import com.example.signalbackend.domain.admin.exception.PasswordMixmatchException;
+import com.example.signalbackend.global.exception.PasswordMixmatchException;
 import com.example.signalbackend.domain.user.domain.User;
 import com.example.signalbackend.domain.user.domain.repository.UserRepository;
 import com.example.signalbackend.domain.user.exception.UserAlreadyException;
 import com.example.signalbackend.domain.user.exception.UserNotFoundException;
+import com.example.signalbackend.domain.user.facade.UserFacade;
 import com.example.signalbackend.domain.user.presentation.request.UserSigninRequest;
 import com.example.signalbackend.domain.user.presentation.request.UserSignupRequest;
+import com.example.signalbackend.domain.user.presentation.response.UserInfoResponse;
 import com.example.signalbackend.global.security.jwt.JwtTokenProvider;
 import com.example.signalbackend.global.utils.token.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
@@ -22,6 +23,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final UserFacade userFacade;
 
     @Transactional
     public void userSignup(UserSignupRequest request) {
@@ -51,5 +53,23 @@ public class UserService {
         }
 
         return jwtTokenProvider.generateToken(user.getAccountId(), Role.USER.toString());
+    }
+
+    @Transactional
+    public void userSecession() {
+        User user = userFacade.getCurrentUser();
+        userRepository.deleteById(user.getId());
+    }
+
+    @Transactional(readOnly = true)
+    public UserInfoResponse queryUserInfo() {
+        User user = userFacade.getCurrentUser();
+
+        return new UserInfoResponse(
+                user.getName(),
+                user.getPhone(),
+                user.getBirth(),
+                user.getProfile()
+        );
     }
 }
