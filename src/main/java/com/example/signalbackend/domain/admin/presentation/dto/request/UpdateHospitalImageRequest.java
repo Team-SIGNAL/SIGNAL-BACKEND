@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @NoArgsConstructor
 @Getter
-public class UpdateAdminHospitalImageRequest {
+public class UpdateHospitalImageRequest {
     @NotBlank
     private String hospital_image;
 }

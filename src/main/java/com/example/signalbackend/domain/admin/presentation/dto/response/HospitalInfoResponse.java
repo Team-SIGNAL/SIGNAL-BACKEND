@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class AdminInfoResponse {
+public class HospitalInfoResponse {
     private final String name;
     private final String phone;
     private final String profile;

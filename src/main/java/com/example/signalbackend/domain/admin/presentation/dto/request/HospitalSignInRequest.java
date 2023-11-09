@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 @NoArgsConstructor
 @Getter
-public class AdminSignInRequest {
+public class HospitalSignInRequest {
 
     @NotBlank
     private String accountId;

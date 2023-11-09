@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 
 @NoArgsConstructor
 @Getter
-public class AdminSignUpRequest {
+public class HospitalSignUpRequest {
 
     @NotBlank
     @Size(min = 2, max = 20)
