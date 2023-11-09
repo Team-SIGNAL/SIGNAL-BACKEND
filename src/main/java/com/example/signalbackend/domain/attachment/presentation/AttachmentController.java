@@ -15,7 +15,7 @@ public class AttachmentController {
     private final AttachmentService attachmentService;
 
     @PostMapping
-    public UploadImageResponse uploadHospitalImage(MultipartFile image) {
+    public UploadImageResponse uploadImage(MultipartFile image) {
         return attachmentService.uploadImage(image);
     }
 }
