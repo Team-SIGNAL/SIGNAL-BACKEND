@@ -44,9 +44,7 @@ public class S3Util {
     }
 
     private String verificationFile(MultipartFile file) {
-        if(file.isEmpty())
-            throw FileIsEmptyException.EXCEPTION;
-
+        if(file.isEmpty()) throw FileIsEmptyException.EXCEPTION;
         String extension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
 
         return extension;
@@ -54,9 +52,9 @@ public class S3Util {
 
     private String saveImage(MultipartFile file, String extension) throws IOException {
         String filePath = UUID.randomUUID() + extension;
-
         amazonS3Client.putObject(new PutObjectRequest(bucketName, filePath, file.getInputStream(), null)
                 .withCannedAcl(CannedAccessControlList.PublicRead));
+
         return s3BaseUrl + filePath;
     }
 
