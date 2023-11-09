@@ -44,6 +44,12 @@ dependencies {
     // database
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'mysql:mysql-connector-java'
+
+    // aws
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
+    // resilience4j
+    implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.7.0'
 }
 
 jar {
