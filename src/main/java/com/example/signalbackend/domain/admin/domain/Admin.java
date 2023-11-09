@@ -38,12 +38,24 @@ public class Admin extends BaseIdEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Column(columnDefinition = "CHAR(45)")
+    private String hospitalImage;
+
+    @Column(columnDefinition = "CHAR(45)")
+    private String profile;
+
     @Builder
-    public Admin(String adminId, String password, String name, String phone, Role role) {
+    public Admin(String adminId, String password, String name, String phone, Role role, String hospitalImage, String profile) {
         this.adminId = adminId;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.role = role;
+        this.hospitalImage = hospitalImage;
+        this.profile = profile;
+    }
+
+    public void updateHospitalImage(String hospitalImage) {
+        this.hospitalImage = hospitalImage;
     }
 }
