@@ -2,11 +2,14 @@ package com.example.signalbackend.domain.admin.presentation;
 
 import com.example.signalbackend.domain.admin.presentation.dto.request.AdminSignInRequest;
 import com.example.signalbackend.domain.admin.presentation.dto.request.AdminSignUpRequest;
+import com.example.signalbackend.domain.admin.presentation.dto.request.UpdateAdminHospitalImageRequest;
+import com.example.signalbackend.domain.admin.presentation.dto.response.AdminInfoResponse;
 import com.example.signalbackend.domain.admin.presentation.dto.response.AdminTokenResponse;
 import com.example.signalbackend.domain.admin.service.AdminService;
-import com.example.signalbackend.global.utils.token.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +35,16 @@ public class AdminController {
     @PostMapping("/signin")
     public AdminTokenResponse adminSignin(@RequestBody @Valid AdminSignInRequest request) {
         return adminService.signin(request);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/image")
+    public void updateAdminHospitalImage(@RequestBody @Valid UpdateAdminHospitalImageRequest request) {
+        adminService.updateHospitalImage(request);
+    }
+
+    @GetMapping("/info")
+    public AdminInfoResponse queryAdminInfo() {
+        return adminService.queryAdminInfo();
     }
 }
