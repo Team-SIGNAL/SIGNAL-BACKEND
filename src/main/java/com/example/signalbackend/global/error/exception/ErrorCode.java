@@ -20,6 +20,17 @@ public enum ErrorCode {
     FILE_SAVE_FAILED(400, "FILE-400-2", "File Save Failed"),
 
     CREATE_FEED_NOT_PERMISSION(409, "FEED-409-1", "Create Feed Not Permission"),
+    FEED_NOT_FOUND(404, "FEED-400-1", "Feed Not Found"),
+    FEED_NOT_DELETE(401, "FEED-401-1", "Feed Not Delete"),
+    FEED_NOT_UPDATE(401, "FEED-401-2", "Feed Not Update"),
+
+    DIARY_NOT_FOUND(404, "DIARY-404-1", "Diary Not Found"),
+    DIARY_NOT_DELETE(401, "DIARY-401-1", "Diary Not Delete"),
+
+    RESERVATION_NOT_FOUND(404, "RESERVATION-400-1", "Reservation Not Found"),
+
+    RECOMMEND_NOT_FOUND(404, "RECOMMEND-404-1", "Recommend Not Found"),
+    RECOMMEND_NOT_DELETE(401, "RECOMMEND-401-1", "Recommend Not Delete"),
 
     EXPIRED_TOKEN(401, "COMMON-401-2", "Expired Token"),
     INVALID_TOKEN(401, "COMMON-401-1", "Invalid Token"),
