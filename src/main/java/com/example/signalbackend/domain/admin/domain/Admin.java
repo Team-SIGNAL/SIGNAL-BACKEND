@@ -2,7 +2,6 @@ package com.example.signalbackend.domain.admin.domain;
 
 import com.example.signalbackend.global.entity.BaseIdEntity;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -38,24 +37,31 @@ public class Admin extends BaseIdEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Column(columnDefinition = "CHAR(45)")
-    private String hospitalImage;
-
-    @Column(columnDefinition = "CHAR(45)")
+    @Column(columnDefinition = "CHAR(100)")
     private String profile;
 
-    @Builder
-    public Admin(String adminId, String password, String name, String phone, Role role, String hospitalImage, String profile) {
-        this.adminId = adminId;
-        this.password = password;
-        this.name = name;
-        this.phone = phone;
-        this.role = role;
+    @Column(columnDefinition = "VARCHAR(80)", nullable = false)
+    private String address;
+
+    @Column(columnDefinition = "CHAR(100)")
+    private String hospitalImage;
+
+    @Column(columnDefinition = "VARCHAR(8)", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @ColumnDefault("'WAIT'")
+    private AuthStatus authStatus;
+
+    public void updateHospitalImage(String hospitalImage, AuthStatus authStatus) {
         this.hospitalImage = hospitalImage;
-        this.profile = profile;
+        this.authStatus = authStatus;
     }
 
-    public void updateHospitalImage(String hospitalImage) {
-        this.hospitalImage = hospitalImage;
+    public void updateAuthStatusAndRole(AuthStatus authSatus, Role role) {
+        this.authStatus = authSatus;
+        this.role = role;
+    }
+
+    public void updateAuthStatus(AuthStatus authSatus) {
+        this.authStatus = authSatus;
     }
 }
