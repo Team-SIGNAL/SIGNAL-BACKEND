@@ -16,7 +16,7 @@ public class HospitalSignUpRequest {
     private String name;
 
     @NotBlank
-    @Size(min = 13)
+    @Size(min = 11)
     private String phone;
 
     @NotBlank
@@ -26,4 +26,7 @@ public class HospitalSignUpRequest {
     @NotBlank
     @Pattern(regexp = "(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!#$%&'()*+,./:;<=>?@＼^_`{|}~])[a-zA-Z0-9!#$%&'()*+,./:;<=>?@＼^_`{|}~]{8,32}$")
     private String password;
+
+    @NotBlank
+    private String address;
 }
