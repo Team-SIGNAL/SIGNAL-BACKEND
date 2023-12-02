@@ -7,6 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.Option;
+import java.util.Optional;
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Component
 public class AdminFacade {
@@ -20,5 +24,9 @@ public class AdminFacade {
     public Admin getCurrentAdmin() {
         String adminId = SecurityContextHolder.getContext().getAuthentication().getName();
         return getAdminByAdminId(adminId);
+    }
+
+    public Optional<Admin> getAdminById(UUID id) {
+        return adminRepository.findById(id);
     }
 }
