@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,6 +42,17 @@ public class User extends BaseIdEntity {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(columnDefinition = "CHAR(45)")
+    @Column(columnDefinition = "CHAR(200)")
     private String profile;
+
+    @ColumnDefault("0")
+    private Long coinCount;
+
+    public void addUserCoinCount(Long coin) {
+        this.coinCount += coin;
+    }
+
+    public void updateUserProfile(String profile) {
+        this.profile = profile;
+    }
 }
