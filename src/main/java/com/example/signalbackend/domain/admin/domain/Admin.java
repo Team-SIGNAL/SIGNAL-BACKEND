@@ -37,13 +37,13 @@ public class Admin extends BaseIdEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @Column(columnDefinition = "CHAR(200)")
+    @Column(columnDefinition = "CHAR(100)")
     private String profile;
 
     @Column(columnDefinition = "VARCHAR(80)", nullable = false)
     private String address;
 
-    @Column(columnDefinition = "CHAR(200)")
+    @Column(columnDefinition = "CHAR(100)")
     private String hospitalImage;
 
     @Column(columnDefinition = "VARCHAR(8)", nullable = false)
