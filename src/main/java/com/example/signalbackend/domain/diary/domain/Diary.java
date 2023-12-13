@@ -36,7 +36,7 @@ public class Diary extends BaseIdEntity {
 
     private LocalDate createDate;
 
-    @Column(columnDefinition = "CHAR(200)")
+    @Column(columnDefinition = "CHAR(100)")
     private String image;
 
     @ManyToOne(fetch = FetchType.LAZY)
