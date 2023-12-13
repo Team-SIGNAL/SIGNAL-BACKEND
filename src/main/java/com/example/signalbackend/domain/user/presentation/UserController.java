@@ -1,5 +1,6 @@
 package com.example.signalbackend.domain.user.presentation;
 
+import com.example.signalbackend.domain.user.presentation.request.UpdateUserProfileRequest;
 import com.example.signalbackend.domain.user.presentation.request.UserSigninRequest;
 import com.example.signalbackend.domain.user.presentation.request.UserSignupRequest;
 import com.example.signalbackend.domain.user.presentation.response.UserInfoResponse;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +46,13 @@ public class UserController {
     }
 
     @GetMapping("/info")
-    public UserInfoResponse getUserInfo() {
+    public UserInfoResponse queryUserInfo() {
         return userService.queryUserInfo();
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping
+    public void updateUserProfile(@Valid @RequestBody UpdateUserProfileRequest request) {
+        userService.updateUserProfile(request);
     }
 }

@@ -1,6 +1,8 @@
 package com.example.signalbackend.domain.user.service;
 
 import com.example.signalbackend.domain.admin.domain.Role;
+import com.example.signalbackend.domain.coin.domain.repository.CoinRepository;
+import com.example.signalbackend.domain.user.presentation.request.UpdateUserProfileRequest;
 import com.example.signalbackend.global.exception.PasswordMixmatchException;
 import com.example.signalbackend.domain.user.domain.User;
 import com.example.signalbackend.domain.user.domain.repository.UserRepository;
@@ -40,6 +42,7 @@ public class UserService {
                         .accountId(request.getAccountId())
                         .gender(request.getGender())
                         .password(passwordEncoder.encode(request.getPassword()))
+                        .coinCount(Long.valueOf(0))
                 .build());
     }
 
@@ -69,7 +72,14 @@ public class UserService {
                 user.getName(),
                 user.getPhone(),
                 user.getBirth(),
-                user.getProfile()
+                user.getProfile(),
+                user.getCoinCount()
         );
+    }
+
+    @Transactional
+    public void updateUserProfile(UpdateUserProfileRequest request) {
+        User user = userFacade.getCurrentUser();
+        user.updateUserProfile(request.getImage());
     }
 }
