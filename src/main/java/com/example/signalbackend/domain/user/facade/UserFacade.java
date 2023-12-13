@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @RequiredArgsConstructor
 @Component
 public class UserFacade{
@@ -20,5 +23,9 @@ public class UserFacade{
     public User getCurrentUser() {
         String accountId = SecurityContextHolder.getContext().getAuthentication().getName();
         return getUserByAccountId(accountId);
+    }
+
+    public Optional<User> getUserById(UUID id) {
+        return userRepository.findById(id);
     }
 }
