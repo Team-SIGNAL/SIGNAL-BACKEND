@@ -12,4 +12,5 @@ public class UserInfoResponse {
     private String phone;
     private LocalDate birth;
     private String profile;
+    private Long coinCount;
 }
