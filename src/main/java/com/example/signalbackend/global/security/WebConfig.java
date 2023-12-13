@@ -15,7 +15,8 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins(
                         "https://signal.p-e.kr/",
                         "http://localhost:3000",
-                        "http://localhost:3001"
+                        "http://localhost:3001",
+                        "http://admin.signal.s3-website.ap-northeast-2.amazonaws.com/"
                 );
     }
 }
