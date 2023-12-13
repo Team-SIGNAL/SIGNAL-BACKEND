@@ -42,7 +42,7 @@ public class User extends BaseIdEntity {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Column(columnDefinition = "CHAR(200)")
+    @Column(columnDefinition = "CHAR(100)")
     private String profile;
 
     @ColumnDefault("0")
