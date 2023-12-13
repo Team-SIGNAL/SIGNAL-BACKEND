@@ -37,7 +37,4 @@ public class Comment extends BaseIdEntity {
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
     private String name;
-
-    @Column(columnDefinition = "CHAR(100)")
-    private String profile;
 }
