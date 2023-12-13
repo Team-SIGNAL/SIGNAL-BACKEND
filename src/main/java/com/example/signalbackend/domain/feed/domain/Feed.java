@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,7 +44,9 @@ public class Feed extends BaseIdEntity {
     @Column(nullable = false)
     private LocalDate createDate;
 
-    private Boolean reportStatus;
+    @Column(columnDefinition = "TINYINT(1)", nullable = false)
+    @ColumnDefault("0")
+    private boolean reportStatus;
 
     public void updateReportStatus(Boolean reportStatus) {
         this.reportStatus = reportStatus;
